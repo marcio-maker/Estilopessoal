@@ -394,3 +394,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicia o questionário
     renderQuestion();
 });
+// Adiciona funcionalidade ao footer de contato
+const contactFooter = document.querySelector('.contact-footer');
+
+contactFooter.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && e.target.href.includes('instagram.com')) {
+        alert('Você será redirecionado para o Instagram do Hair by Marcio.');
+    }
+});

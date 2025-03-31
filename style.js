@@ -345,7 +345,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function getProductRecommendation(type) {
         if (type === 'haircare') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://www.lola.com.br" target="_blank">Linha de cuidados para cachos (ex: Lola Cosmetics ou Salon Line Cachos)</a>';
+                return 'https://mercadolivre.com/sec/1RKdy8e" target="_blank">Linha de cuidados para cachos (ex: Lowell Cacho Mágico Fluído Ativador Cachos 10 Benefícios
+)</a>';
             } else if (answers.hairType === 'liso') {
                 return '<a href="https://www.kerastase.com.br" target="_blank">Shampoo sem sal para brilho (ex: Kérastase Discipline)</a>';
             } else {

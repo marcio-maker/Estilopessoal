@@ -283,9 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="visual-examples">
                 <h3>Inspirações para Você</h3>
                 <div class="example-grid">
-                    <img src="https://i.pinimg.com/736x/e9/34/5d/e9345d09b0f86ffd92e44a5826b08bff.jpg') }}" alt="Exemplo de corte">
-                    <img src="https://i.pinimg.com/736x/91/7f/64/917f6409deb677e4470a17d2618b2ec7.jpg" alt="Exemplo de corte">
-                    <img src="https://i.pinimg.com/736x/f3/20/bd/f320bd79017de59e15ca4ad844a19e1d.jpg" alt="Exemplo de corte">
+                    <img src="{{ url_for('static', filename='images/exemplo1.jpg') }}" alt="Exemplo de corte">
+                    <img src="{{ url_for('static', filename='images/exemplo2.jpg') }}" alt="Exemplo de corte">
+                    <img src="{{ url_for('static', filename='images/exemplo3.jpg') }}" alt="Exemplo de corte">
                 </div>
             </div>
             
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getProductRecommendation(type) {
         if (type === 'haircare') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                <a href="https://mercadolivre.com/sec/1T8Ucwpr" target="_blank">Absolut repair máscara  (ex: Absolut repair máscara )</a>';
+                return '<a href="https://www.lola.com.br" target="_blank">Linha de cuidados para cachos (ex: Lola Cosmetics ou Salon Line Cachos)</a>';
             } else if (answers.hairType === 'liso') {
                 return '<a href="https://www.kerastase.com.br" target="_blank">Shampoo sem sal para brilho (ex: Kérastase Discipline)</a>';
             } else {

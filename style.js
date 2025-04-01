@@ -283,9 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="visual-examples">
                 <h3>Inspirações para Você</h3>
                 <div class="example-grid">
-                    <img src="{{ url_for('static', filename='images/exemplo1.jpg') }}" alt="Exemplo de corte">
-                    <img src="{{ url_for('static', filename='images/exemplo2.jpg') }}" alt="Exemplo de corte">
-                    <img src="{{ url_for('static', filename='images/exemplo3.jpg') }}" alt="Exemplo de corte">
+                    <img src="https://i.pinimg.com/736x/ff/dc/7b/ffdc7b8287c18ce8442ff550bfb1ac5b.jpg" alt="Exemplo de corte">
+                    <img src="https://i.pinimg.com/736x/fd/df/12/fddf1222ec90fae02a250f159e4a6663.jpg" alt="Exemplo de corte">
+                    <img src="https://i.pinimg.com/736x/91/7f/64/917f6409deb677e4470a17d2618b2ec7.jpg" alt="Exemplo de corte">
                 </div>
             </div>
             
@@ -345,27 +345,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function getProductRecommendation(type) {
         if (type === 'haircare') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://www.lola.com.br" target="_blank">Linha de cuidados para cachos (ex: Lola Cosmetics ou Salon Line Cachos)</a>';
+                return '<a href="https://mercadolivre.com/sec/18uy8jS" target="_blank">Shampoo para cuidados dos cachos (ex: Loreal Shampoo  )</a>';
             } else if (answers.hairType === 'liso') {
-                return '<a href="https://www.kerastase.com.br" target="_blank">Shampoo sem sal para brilho (ex: Kérastase Discipline)</a>';
+                return '<a href="https://mercadolivre.com/sec/1jKirLi" target="_blank">Shampoo sem sal para brilho (ex: Kérastase Densifique)</a>';
             } else {
-                return '<a href="https://www.pantene.com.br" target="_blank">Shampoo hidratante (ex: Pantene Pro-V)</a>';
+                return '<a href="https://mercadolivre.com/sec/1wFbYxw" target="_blank">Shampoo hidratante (ex: Loreal Shampoo)</a>';
             }
         } else if (type === 'styling') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://www.salonline.com.br" target="_blank">Creme de pentear definidor (ex: Salon Line Cachos ou Cantu)</a>';
+                return '<a href="https://mercadolivre.com/sec/1siypwP" target="_blank">Creme de pentear definidor (ex: Loreal Leave-in )</a>';
             } else if (answers.hairType === 'liso') {
-                return '<a href="https://www.moroccanoil.com" target="_blank">Óleo de argan para brilho (ex: Moroccanoil)</a>';
+                return '<a href="https://mercadolivre.com/sec/29z4Pnp" target="_blank">Óleo de argan para brilho (ex: Moroccanoil)</a>';
             } else {
-                return '<a href="https://www.wella.com" target="_blank">Mousse ou spray texturizador (ex: Wella Professionals)</a>';
+                return '<a href="https://mercadolivre.com/sec/16FfURj" target="_blank">Mousse ou spray texturizador (ex: Wella Professionals)</a>';
             }
         } else if (type === 'treatment') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://www.salonline.com.br" target="_blank">Máscara de hidratação profunda (ex: Salon Line Cachos ou Lola Cosmetics)</a>';
+                return '<a href="https://mercadolivre.com/sec/12UwAdP" target="_blank">Máscara de hidratação profunda (ex: Curl Expression Máscara )</a>';
             } else if (answers.hairType === 'liso') {
-                return '<a href="https://www.kerastase.com.br" target="_blank">Máscara de reconstrução (ex: Kérastase Resistance)</a>';
+                return '<a href="https://mercadolivre.com/sec/2356nrv" target="_blank">Máscara de reconstrução (ex: Kérastase Resistance)</a>';
             } else {
-                return '<a href="https://www.elseve.com.br" target="_blank">Máscara nutritiva (ex: Elseve Hidra Hialurônico)</a>';
+                return '<a href="https://mercadolivre.com/sec/1HhvTKM" target="_blank">Máscara nutritiva (ex: Loreal Professionnel Nutrioil)</a>';
             }
         }
         

@@ -113,77 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
     
-    // Adicione no início do script, após as perguntas
-const inspirationGallery = [
-    {
-        id: 1,
-        image: "https://i.pinimg.com/736x/ff/dc/7b/ffdc7b8287c18ce8442ff550bfb1ac5b.jpg",
-        caption: "Corte moderno para rostos ovais"
-    },
-    {
-        id: 2,
-        image: "https://i.pinimg.com/736x/fd/df/12/fddf1222ec90fae02a250f159e4a6663.jpg",
-        caption: "Franja longa para rostos quadrados"
-    },
-    {
-        id: 3,
-        image: "https://i.pinimg.com/736x/91/7f/64/917f6409deb677e4470a17d2618b2ec7.jpg",
-        caption: "Camadas para cabelos cacheados"
-    },
-    {
-        id: 4,
-        image: "https://i.pinimg.com/736x/5a/3b/e6/5a3be6a6c4d5c0a9b5e5b5e5b5e5b5e5.jpg",
-        caption: "Corte assimétrico para rostos redondos"
-    },
-    {
-        id: 5,
-        image: "https://i.pinimg.com/736x/3a/7d/5b/3a7d5b5e5b5e5b5e5b5e5b5e5b5e5b5.jpg",
-        caption: "Estilo romântico com ondas suaves"
-    },
-    {
-        id: 6,
-        image: "https://i.pinimg.com/736x/7b/2c/9a/7b2c9a5e5b5e5b5e5b5e5b5e5b5e5b5.jpg",
-        caption: "Corte pixie para contraste alto"
-    }
-];
-
-// Modifique a função showResults para incluir a galeria
-function showResults() {
-    // ... (mantenha o conteúdo existente até a parte dos exemplos visuais)
-    
-    // Substitua a seção de exemplos visuais por:
-    resultsHTML += `
-        <div class="gallery-section">
-            <h3 class="gallery-title">Galeria de Inspiração</h3>
-            <div class="gallery-grid" id="inspirationGallery">
-                ${inspirationGallery.map(item => `
-                    <div class="gallery-item">
-                        <img src="${item.image}" alt="${item.caption}">
-                        <div class="gallery-caption">${item.caption}</div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-    
-    // ... (mantenha o restante do código existente)
-}
-
-// Adicione este evento para melhorar a experiência mobile
-document.addEventListener('DOMContentLoaded', function() {
-    // ... (código existente)
-    
-    // Melhorias para mobile
-    if ('ontouchstart' in window) {
-        document.querySelectorAll('.option-btn').forEach(btn => {
-            btn.style.minHeight = '60px';
-        });
-        
-        document.querySelectorAll('button').forEach(btn => {
-            btn.style.fontSize = '1rem';
-        });
-    }
-});
     // Função para renderizar a pergunta atual
     function renderQuestion() {
         const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -369,7 +298,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <li><strong>Tratamento:</strong> ${getProductRecommendation('treatment')}</li>
                 </ul>
             </div>
-            
+        `;
+        
+        resultsContent.innerHTML = resultsHTML;
+        
+        // Adiciona o visagismo premium no final do blog
+        const premiumOfferHTML = `
             <div class="premium-offer">
                 <h3>Consulta de Visagismo Premium</h3>
                 <p>Receba uma análise completa personalizada com:</p>
@@ -388,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        resultsContent.innerHTML = resultsHTML;
+        resultsContent.insertAdjacentHTML('beforeend', premiumOfferHTML);
         
         document.getElementById('btnBuy')?.addEventListener('click', function() {
             alert('Você será redirecionado para completar sua compra');
@@ -416,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function getProductRecommendation(type) {
         if (type === 'haircare') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://mercadolivre.com/sec/18uy8jS" target="_blank">Shampoo para cuidados dos cachos (ex: Loreal Shampoo  )</a>';
+                return '<a href="https://mercadolivre.com/sec/18uy8jS" target="_blank">Shampoo para cuidados dos cachos (ex: Loreal Shampoo)</a>';
             } else if (answers.hairType === 'liso') {
                 return '<a href="https://mercadolivre.com/sec/1jKirLi" target="_blank">Shampoo sem sal para brilho (ex: Kérastase Densifique)</a>';
             } else {
@@ -424,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else if (type === 'styling') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://mercadolivre.com/sec/1siypwP" target="_blank">Creme de pentear definidor (ex: Loreal Leave-in )</a>';
+                return '<a href="https://mercadolivre.com/sec/1siypwP" target="_blank">Creme de pentear definidor (ex: Loreal Leave-in)</a>';
             } else if (answers.hairType === 'liso') {
                 return '<a href="https://mercadolivre.com/sec/29z4Pnp" target="_blank">Óleo de argan para brilho (ex: Moroccanoil)</a>';
             } else {
@@ -432,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else if (type === 'treatment') {
             if (answers.hairType === 'cacheado' || answers.hairType === 'crespo') {
-                return '<a href="https://mercadolivre.com/sec/12UwAdP" target="_blank">Máscara de hidratação profunda (ex: Curl Expression Máscara )</a>';
+                return '<a href="https://mercadolivre.com/sec/12UwAdP" target="_blank">Máscara de hidratação profunda (ex: Curl Expression Máscara)</a>';
             } else if (answers.hairType === 'liso') {
                 return '<a href="https://mercadolivre.com/sec/2356nrv" target="_blank">Máscara de reconstrução (ex: Kérastase Resistance)</a>';
             } else {
@@ -474,127 +408,3 @@ contactFooter.addEventListener('click', (e) => {
         alert('Você será redirecionado para o Instagram do Hair by Marcio.');
     }
 });
-
-// Mini Blog - Dados e Funcionalidades
-const blogPosts = [
-    {
-        id: 1,
-        date: '15/05/2023',
-        title: 'Como escolher o corte certo para seu formato de rosto',
-        summary: 'Descubra como realçar seus melhores traços com cortes que harmonizam com seu formato facial. Aprenda técnicas de visagismo para valorizar seus pontos fortes.',
-        fullContent: `
-            <h3>Guia Completo de Cortes por Formato Facial</h3>
-            <p>O visagismo ensina que cada formato de rosto pede abordagens diferentes:</p>
-            <ul>
-                <li><strong>Rosto oval:</strong> O formato mais versátil, permite praticamente todos os cortes</li>
-                <li><strong>Rosto redondo:</strong> Beneficia-se de cortes que criam ângulos e alongam visualmente</li>
-                <li><strong>Rosto quadrado:</strong> Cortes que suavizam os ângulos da mandíbula são ideais</li>
-                <li><strong>Rosto triangular:</strong> Volume na parte superior equilibra o queixo estreito</li>
-            </ul>
-            <div class="example-grid">
-                <img src="https://i.pinimg.com/736x/5a/3b/e6/5a3be6a6c4d5c0a9b5e5b5e5b5e5b5e5.jpg" alt="Exemplos de cortes">
-            </div>
-        `,
-        category: 'Visagismo'
-    },
-    {
-        id: 2,
-        date: '22/05/2023',
-        title: 'Cores que complementam seu tom de pele',
-        summary: 'Aprenda a selecionar cores de cabelo que realçam sua beleza natural e combinam com sua personalidade.',
-        fullContent: `
-            <h3>Paleta de Cores por Tom de Pele</h3>
-            <p>Baseado na teoria das estações:</p>
-            <ul>
-                <li><strong>Inverno:</strong> Tons frios e intensos como preto azulado e vermelho cereja</li>
-                <li><strong>Verão:</strong> Tons frios mas suaves como castanho acinzentado e loiro gelo</li>
-                <strong>Outono:</strong> Tons quentes e terrosos como cobre e vermelho tijolo</li>
-                <li><strong>Primavera:</strong> Tons quentes e claros como mel e dourado</li>
-            </ul>
-            <p>Dica profissional: Considere também a cor dos seus olhos para harmonização completa.</p>
-        `,
-        category: 'Coloração'
-    },
-    // Adicione mais posts conforme necessário
-];
-
-// Função para renderizar o mini blog
-function renderBlogPosts() {
-    const blogContainer = document.createElement('div');
-    blogContainer.className = 'blog-section';
-    blogContainer.innerHTML = `
-        <h2 class="blog-title">Dicas de Visagismo</h2>
-        <div class="blog-posts" id="blogPostsContainer"></div>
-    `;
-
-    const postsContainer = blogContainer.querySelector('#blogPostsContainer');
-    
-    blogPosts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.className = 'blog-post';
-        postElement.innerHTML = `
-            <p class="post-date">${post.date} • ${post.category}</p>
-            <h3>${post.title}</h3>
-            <p>${post.summary}</p>
-            <a href="#" class="read-more" data-post-id="${post.id}">Ler mais</a>
-        `;
-        postsContainer.appendChild(postElement);
-    });
-
-    return blogContainer;
-}
-
-// Função para mostrar o post completo
-function showFullPost(postId) {
-    const post = blogPosts.find(p => p.id == postId);
-    if (!post) return;
-
-    const modalContent = `
-        <div class="blog-post-full">
-            <button class="btn btn-secondary" id="backToBlog">← Voltar ao blog</button>
-            <p class="post-date">${post.date} • ${post.category}</p>
-            <h2>${post.title}</h2>
-            <div class="post-content">${post.fullContent}</div>
-            <button class="btn btn-primary" id="backToBlogBottom">Voltar ao blog</button>
-        </div>
-    `;
-
-    const blogContainer = document.querySelector('.blog-section');
-    blogContainer.innerHTML = modalContent;
-
-    document.getElementById('backToBlog').addEventListener('click', renderBlog);
-    document.getElementById('backToBlogBottom').addEventListener('click', renderBlog);
-}
-
-// Função para renderizar o blog principal
-function renderBlog() {
-    const blogContainer = document.querySelector('.blog-section');
-    if (blogContainer) {
-        blogContainer.innerHTML = `
-            <h2 class="blog-title">Dicas de Visagismo</h2>
-            <div class="blog-posts" id="blogPostsContainer"></div>
-        `;
-
-        const postsContainer = blogContainer.querySelector('#blogPostsContainer');
-        
-        blogPosts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'blog-post';
-            postElement.innerHTML = `
-                <p class="post-date">${post.date} • ${post.category}</p>
-                <h3>${post.title}</h3>
-                <p>${post.summary}</p>
-                <a href="#" class="read-more" data-post-id="${post.id}">Ler mais</a>
-            `;
-            postsContainer.appendChild(postElement);
-        });
-
-        // Adiciona event listeners aos novos links
-        document.querySelectorAll('.read-more').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                showFullPost(this.dataset.postId);
-            });
-        });
-    }
-}
